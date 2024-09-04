@@ -1,0 +1,53 @@
+
+<!doctype html>
+<html class="template-{{ template.name }}{% if template.suffix %} template-{{ template.name }}-{{ template.suffix }}{% endif %}">
+<head>
+  <title>{{ shop.name }} </title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="{{ page_description | escape }}">
+ {%  if template.name == 'index' %}
+    <x-meta http-equiv="refresh" content="0;URL=/collections/clothing" />
+    <!-- <style> body {display:none} </style> -->
+    </head></body></html> 
+ {% endif %} 
+  <link rel="canonical" href="{{ canonical_url }}"> 
+  
+  {% if settings.favicon %}
+  <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: 100, height: 100 }}">
+  {% endif %}
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<style>
+  [x-cloak]{display:none !important;}
+</style>
+{{ content_for_header }}
+{{ 'theme.css' | asset_url | stylesheet_tag }}
+{{ 'fonts.css' | asset_url | stylesheet_tag }}
+{{ 'application.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'application.js' | asset_url }}"></script>
+<script src="{{ 'theme-cart.js' | asset_url }}"></script>
+<script src="{{ 'alpinejs.cdn.min.js' | asset_url }}" defer></script>
+
+</head>
+
+<body class="template-{{ template.name }} suffix-{{ template.suffix }} tag-{{ product.tags | join: ' tag-' }} min-h-screen grid grid-pancake font-sans">
+  {% liquid
+    unless template.name == "index"
+      render 'header' 
+    endunless
+  %}
+  <main role="main" class="bg-wu-gray w-full h-full">
+    {{ content_for_layout }}
+  </main>
+
+  {% liquid
+    unless template.name == "index"
+      render 'footer'
+      render 'cart-slideout' 
+    endunless
+    render 'svg-defs' 
+  %}
+  </body>
+
+</html>
+
