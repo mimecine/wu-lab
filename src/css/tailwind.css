@@ -36,6 +36,17 @@
     padding-bottom: 1rem !important;
   }
 
+  .template- main {
+    @apply grid place-items-center h-full w-full p-[20px];
+  }
+  .template- main div {
+    @apply text-white bg-wu-blue p-[20px] pt-[40px] pb-[60px] max-w-[50%] font-serif;
+  }
+
+  .template- main h1 {
+    @apply hidden font-sans text-[30px] lg:text-[48px] pb-[20px];
+  }
+
 }
 
 @layer components {

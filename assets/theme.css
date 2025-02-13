@@ -702,6 +702,67 @@ div p {
   padding-bottom: 1rem !important;
 }
 
+.template- main {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-items: center;
+  place-items: center;
+  padding: 20px;
+}
+
+.template- main div {
+  max-width: 50%;
+  background-color: #0A6BFF;
+  background-color: var(--blue,#0A6BFF);
+  padding: 20px;
+  padding-top: 40px;
+  padding-bottom: 60px;
+  font-family: gt-alpina, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, 1);
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+  color: #FFFFFF;
+  color: var(--white,#FFFFFF);
+}
+
+.template- main div.bg-contrasting,.template- main div .bg-contrasting {
+  background-color: #000000;
+  background-color: var(--black,#000000);
+}
+
+.template- main h1 {
+  letter-spacing: 0.1em;
+  display: none;
+  padding-bottom: 20px;
+  font-family: erbar, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 30px;
+}
+
+input[type="radio"].template- main h1:checked + label {
+  border-style: dashed;
+}
+
+input[type="radio"].template- main h1 + label {
+  cursor: pointer;
+  border-bottom-width: 2px;
+  border-style: none;
+  border-color: currentColor;
+}
+
+@media (min-width: 768px) {
+  input[type="radio"].template- main h1 + label:hover {
+    border-style: solid;
+  }
+}
+
+@media (min-width: 1024px) {
+  .template- main h1 {
+    font-size: 48px;
+  }
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
