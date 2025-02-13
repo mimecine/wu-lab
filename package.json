@@ -7,8 +7,11 @@
     "start": "concurrently -k npm:watch-*",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-tailwind": "tailwindcss -m --postcss -i ./src/css/tailwind.css -o ./assets/theme.css --watch",
-    "watch-theme": "theme watch --allow-live",
+    "watch-theme": "theme watch",
     "watch-tailwind": "tailwindcss --postcss -i ./src/css/tailwind.css -o ./assets/theme.css --watch",
+    "deploy live": "theme deploy -e live --allow-live",
+    "get live": "theme get -e live",
+    "get dev": "theme get -e development",
     "open-theme": "theme open --hidepb"
   },
   "author": "",

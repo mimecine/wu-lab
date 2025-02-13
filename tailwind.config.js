@@ -10,6 +10,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        xs: '380px',
+      },
       colors:{
         'wu-nav':'var(--nav,#2000CD)',
         'wu-text':'var(--text,#FFFFFF)',
@@ -28,7 +31,8 @@ module.exports = {
         'wu-brown':'var(--brown,#D6C8AB)',
         'wu-gray':'var(--gray,#BBBBBB)',
         'wu-white':'var(--white,#FFFFFF)',
-        'wu-black':'var(--black,#000000)'
+        'wu-black':'var(--black,#000000)',
+        'wu-orange':'var(--orange,#ea6934)',
       },
       fontFamily:{
         sans:['erbar',...defaultTheme.fontFamily.sans],

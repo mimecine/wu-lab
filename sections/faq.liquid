@@ -1,0 +1,127 @@
+{% comment %}
+  FAQ Section - Allows merchants to add FAQ items from the theme editor.
+{% endcomment %}
+
+<section class="faq-section">
+    <div class="faq-container">
+      <h2>{{ section.settings.title }}</h2>
+  
+      <div class="faq-list">
+        {% for block in section.blocks %}
+          <div class="faq-item">
+            <button class="faq-question">
+              {{ block.settings.question }}
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>{{ block.settings.answer }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    .faq-section {
+      padding: 40px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .faq-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .faq-item {
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 10px;
+    }
+    .faq-question {
+      width: 100%;
+      padding: 15px;
+      font-size: 18px;
+      text-align: left;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-answer {
+      display: none;
+      padding: 10px 15px;
+      font-size: 16px;
+    }
+    .faq-toggle {
+      font-size: 20px;
+    }
+  </style>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.querySelectorAll(".faq-question").forEach(button => {
+        button.addEventListener("click", function() {
+          const answer = this.nextElementSibling;
+          const isVisible = answer.style.display === "block";
+  
+          document.querySelectorAll(".faq-answer").forEach(a => a.style.display = "none");
+          document.querySelectorAll(".faq-toggle").forEach(t => t.textContent = "+");
+  
+          if (!isVisible) {
+            answer.style.display = "block";
+            this.querySelector(".faq-toggle").textContent = "-";
+          }
+        });
+      });
+    });
+  </script>
+  
+  {% schema %}
+  {
+    "name": "FAQ Section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Section Heading",
+        "default": "Frequently Asked Questions"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "faq",
+        "name": "FAQ Item",
+        "settings": [
+          {
+            "type": "text",
+            "id": "question",
+            "label": "Question",
+            "default": "What is your return policy?"
+          },
+          {
+            "type": "textarea",
+            "id": "answer",
+            "label": "Answer",
+            "default": "We accept returns within 30 days of purchase."
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "FAQ Section",
+        "category": "Text",
+        "blocks": [
+          {
+            "type": "faq"
+          },
+          {
+            "type": "faq"
+          }
+        ]
+      }
+    ]
+  }
+  {% endschema %}
+  

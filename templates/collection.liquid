@@ -1,6 +1,7 @@
-<section class="grid md:grid-cols-4 m-auto gap-[2px] bg-wu-white">
+<section class="grid grid-cols-2 md:grid-cols-4 m-auto gap-[2px] bg-wu-white">
+  {% assign remainder = collection.products_count | modulo: 4 %}
+  {% assign pad = 4| minus: remainder %}
   {% for product in collection.products limit: 48 %}
-    {% assign remainder = forloop.length | modulo: 3 %}
     {% assign base_col = product.handle | split: "-" | last %}
 
 
@@ -41,14 +42,41 @@
       </a>
       <div class="
         xtransition-opacity 
+
         md:opacity-0 group-hover:opacity-100 
         font-bold text-center 
         absolute w-full bottom-[40px] {{ txclass }} bg-transparent xbg-{{ base_col }}">
-        <a class="pb-2 pt-3 px-4 h-[40px] text-wu-white  drop-shadow-contrast text-[16px] lg:text-[20px]" href="{{ product.url | within: collection }}">{{ plain_title }}</a>
+        <a class="pb-2 pt-3 md:px-4 h-[40px] text-wu-white  text-[12px] lg:text-[20px]" href="{{ product.url | within: collection }}">{{ plain_title }}</a>
+        <br><span class="pb-2 pt-3 md:px-4 h-[40px] text-wu-white  text-[16px] lg:text-[20px]">{{ product.price | money_without_trailing_zeros }}</span>
       </div>
 
     </div>
   {% endfor %}
+
+
+
+  {% if remainder > 0 %}
+    {% for i in (1..pad) %}
+      <div class="grid relative group pad bg-wu-blue text-white place-content-center p-6">
+        {% if forloop.last %}
+          <a href="/" class="leading-none main-logo">
+            <svg viewBox="0 0 27 27" class="text-wu-blue h-[2em] lg:h-[2.5em]">
+              <use class="fill-white" style="--logo-text:var(--blue)" href="#logo-round" />
+            </svg>
+        </a>
+        {% else %}
+          {% if forloop.rindex == 2 %}
+          <div class="block h-full bg-white p-6 m-auto text-wu-blue">
+            <h2 class="text-[12px] lg:text-[20px]">MENDING</h2>
+            <p class="font-serif text-[9px] lg:text-[15px] pb-4">Yes we mend.<br>For free. </p>
+            <h2 class="text-[12px] lg:text-[20px]">SHIPPING</h2>
+            <p class="font-serif text-[9px] lg:text-[15px] pb-4">For free. Domestically.</p>
+          </div>
+          {% endif %}
+        {% endif %}
+      </div>
+    {% endfor %}
+  {% endif %}
 
   <script>
     const dePad = (e) =>{

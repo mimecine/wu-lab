@@ -1,0 +1,76 @@
+{% for block in section.blocks %}
+  {% case block.type %}
+    {% when 'slide' %}
+      <div class="slide absolute w-screen h-screen inset-0 z-[99]  pointer-events-none" {{ block.shopify_attributes }}>
+        {{ block.settings.image | image_url: width: 2048 | image_tag: class: "w-screen h-screen object-cover", loading: "lazy", style: "background-color: currentColor" }}
+      </div>
+  {% endcase %}
+{% endfor %}
+{% schema %}
+{
+  "name": "Slideshow",
+  "tag": "section",
+  "class": "slideshow",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Slideshow"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Slide",
+      "type": "slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "color_background",
+          "id": "color",
+          "label": "Background Color"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        }
+      ]
+    },
+    
+  ],
+
+  "default": {
+    "settings": {
+      "title": "Slideshow"
+    },
+    "blocks": [
+      {
+        "type": "slide"
+      },
+      {
+        "type": "slide"
+      }
+    ]
+  },
+  "locales": {
+      "en": {
+        "title": "Slideshow"
+      },
+      "fr": {
+        "title": "Diaporama"
+      }
+  },
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+}
+{% endschema %}
+{% comment %}   "enabled_on": {
+    "templates": ["*"],
+    "groups": ["footer"]
+  },
+ {% endcomment %}

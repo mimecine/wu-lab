@@ -17,6 +17,25 @@
   .video video {
     @apply w-screen md:w-[67vw] h-[50vh] md:h-[calc(100vh-70px)] object-contain py-[40px] px-[20px] md:p-[40px];
   }
+
+  form-embed {
+    --container-border-radius: 0;
+    --form-field-border-radius: 0;
+    --button-border-radius: 0;
+    --button-text-color: white;
+    --forms-heading-font: 24px erbar;
+    --forms-body-font: gt-alpina;
+    --button-padding: 21px 15px 15px 15px;
+  }
+  form-embed > button {
+    padding-top: 21px !important;
+  }
+
+
+  div p {
+    padding-bottom: 1rem !important;
+  }
+
 }
 
 @layer components {

@@ -1,0 +1,114 @@
+{% comment %}
+Collection grid for landing page
+{% endcomment %}
+
+<section class="index-collection-grid ">  
+      <div class="grid grid-cols-2 xmd:grid-cols-4 m-auto gap-[2px] xbg-wu-white md:w-1/2 md:m-auto">
+        {% for block in section.blocks %}
+          <div class="grid relative group w-full">
+            {% case block.type %}
+              {% when 'collection' %}
+                {% assign collection = collections[block.settings.collection] %}
+                <a href="{{ collection.url }}" class="w-full block relative">
+
+                  <div class="w-full aspect-w-4 aspect-h-5 ">
+                    <div class="block w-100 h-100 absolute top-0 left-0 border border-white bg-[var(--bg-color)] animate-pulse duration-100"> </div>
+                    {%liquid 
+                      if collection.metafields.custom.main_image
+                        assign front_image = collection.metafields.custom.main_image
+                      else
+                        assign front_image = collection.featured_image
+                      endif
+                      if collection.metafields.custom.hover_image
+                        assign hover_image = collection.metafields.custom.hover_image
+                      else
+                        assign hover_image = collection.featured_image
+                      endif
+                    %}
+
+                    {{ front_image | image_url: width: 1200, crop: 'center' | image_tag: 
+                    sizes: '(min-width: 768px) 33vw, (min-width: 1536px) 25vw, 100vw', 
+                    class: 'block opacity-0 xmd:group-hover:hidden object-cover transition-opacity duration-1000', 
+                    loading: 'lazy',
+                    onload: 'this.classList.remove("opacity-0")'}}
+                   {{ hover_image | image_url: width: 1200, crop: 'center' | image_tag: 
+                    sizes: '(min-width: 768px) 33vw, (min-width: 1536px) 25vw, 100vw', 
+                    class: 'opacity-0 hidden md:group-hover:block object-cover xp-0', 
+                    onload: 'this.classList.remove("opacity-0")',
+                    preload: true }}
+          
+                  </div>
+                </a>
+                <div class="
+                  xtransition-opacity 
+                  md:opacity-0 group-hover:opacity-100 
+                  font-bold text-center 
+                  absolute w-full bottom-[40%] {{ txclass }} bg-transparent xbg-{{ base_col }}">
+                  <a class="pb-2 pt-3 md:px-4 h-[40px] text-wu-white  text-[24px] lg:text-[60px]" href="{{ collection.url }}">{{ collection.title }}</a>
+                  {{ collection.metafields.custom.featured_product.title }}
+                </div>              
+              {% when 'content' %}
+                <div class="w-full xaspect-w-4 xaspect-h-5 bg-wu-blue text-white grid place-content-center p-6"> 
+                {{ block.settings.content }}
+                </div>
+            {% endcase %}
+          </div>
+        {% endfor %}
+      </div>
+  </section>
+  
+  {% schema %}
+  {
+    "name": "Index Grid",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Section Heading",
+        "default": "Featured Collections"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "collection",
+        "name": "Collection",
+        "settings": [
+          {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection",
+          },
+        ]
+      },
+      {
+        "type": "content",
+        "name": "Custom Content",
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "content",
+            "label": "Contents",
+          },
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Index Grid",
+        "category": "Text",
+        "blocks": [
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "content"
+          }
+        ]
+      }
+    ]
+  }
+  {% endschema %}
+  
