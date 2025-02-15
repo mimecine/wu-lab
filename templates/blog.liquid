@@ -10,7 +10,7 @@
     </div>
     <div class="bg-wu-red h-full md:aspect-h-3 md:aspect-w-3 object-cover grid place-items-center">
       {{ pages[blog.handle].metafields.custom.featured_image 
-        | image_url: width: 3600 , height: 3600, crop: 'center'
+        | image_url: height: 1000
         | image_tag: 
           class: 'transition-opacity duration-300 opacity-0 object-cover w-full',
           sizes: '(min-width: 768px) 50vw, 100vw',
@@ -46,7 +46,7 @@
       <img class="object-cover w-full" src="{{ article.image.src | image_url: height: 1600 }}">
     </div>
     {% endif %}
-    <div class="content p-[20px] md:p-[40px] min-h-[30vh]">
+    <div class="content p-[20px] md:p-[40px] min-h-[30vh]" id="{{ article.title }}">
       <h2 class="text-[30px] tracking-[0.2em] uppercase pb-2">{{ article.title }}</h2>
       <div class="font-serif text-[16px] lg:text-[18px] leading-[23px] md:leading-[27px] space-y-4 {% unless article.image %} {% if has_images.size > 3 %} columns-2 {% endif %} md:columns-3 md:column-auto{% endunless %}">
         {{ article.content | remove: '<meta charset="utf-8">' | remove: '<p>' | remove: '</p>' }}

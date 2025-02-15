@@ -3,7 +3,7 @@ Collection grid for landing page
 {% endcomment %}
 
 <section class="index-collection-grid ">  
-      <div class="grid grid-cols-2 xmd:grid-cols-4 m-auto gap-[2px] xbg-wu-white md:w-1/2 md:m-auto">
+      <div class="grid grid-cols-2 m-auto gap-[2px] xl:w-1/2 md:m-auto">
         {% for block in section.blocks %}
           <div class="grid relative group w-full">
             {% case block.type %}
@@ -26,29 +26,37 @@ Collection grid for landing page
                       endif
                     %}
 
-                    {{ front_image | image_url: width: 1200, crop: 'center' | image_tag: 
-                    sizes: '(min-width: 768px) 33vw, (min-width: 1536px) 25vw, 100vw', 
-                    class: 'block opacity-0 xmd:group-hover:hidden object-cover transition-opacity duration-1000', 
-                    loading: 'lazy',
-                    onload: 'this.classList.remove("opacity-0")'}}
-                   {{ hover_image | image_url: width: 1200, crop: 'center' | image_tag: 
-                    sizes: '(min-width: 768px) 33vw, (min-width: 1536px) 25vw, 100vw', 
-                    class: 'opacity-0 hidden md:group-hover:block object-cover xp-0', 
-                    onload: 'this.classList.remove("opacity-0")',
-                    preload: true }}
-          
+                    {% if front_image  %}
+                      {{  front_image | image_url: width: 1200, crop: 'center' | image_tag: 
+                          sizes: '(min-width: 768px) 33vw, (min-width: 1536px) 25vw, 100vw', 
+                          class: 'block opacity-0 xmd:group-hover:hidden object-cover transition-opacity duration-1000', 
+                          loading: 'lazy',
+                          onload: 'this.classList.remove("opacity-0")'
+                      }}
+                      {% if hover_image %}
+                        {{  hover_image | image_url: width: 1200, crop: 'center' | image_tag: 
+                            sizes: '(min-width: 768px) 33vw, (min-width: 1536px) 25vw, 100vw', 
+                            class: 'opacity-0 hidden md:group-hover:block object-cover xp-0', 
+                            onload: 'this.classList.remove("opacity-0")',
+                            preload: true 
+                        }}
+                      {% endif %}
+                    {% else %}
+                      <div class="w-full bg-wu-blue text-white grid place-content-center p-6 lg:text-2xl hover:bg-wu-green"> 
+                          COLLECTION
+                      </div>
+                    {% endif %}
                   </div>
                 </a>
                 <div class="
-                  xtransition-opacity 
-                  md:opacity-0 group-hover:opacity-100 
+                  xl:opacity-100 group-hover:opacity-100 
                   font-bold text-center 
-                  absolute w-full bottom-[40%] {{ txclass }} bg-transparent xbg-{{ base_col }}">
-                  <a class="pb-2 pt-3 md:px-4 h-[40px] text-wu-white  text-[24px] lg:text-[60px]" href="{{ collection.url }}">{{ collection.title }}</a>
+                  absolute w-full bottom-[40%] {{ txclass }} bg-transparent">
+                  <a class="pb-2 pt-3 md:px-4 h-[40px] text-wu-white  text-[16px] lg:text-[50px] uppercase tracking-widest" href="{{ collection.url }}">{{ collection.title }}</a>
                   {{ collection.metafields.custom.featured_product.title }}
                 </div>              
               {% when 'content' %}
-                <div class="w-full xaspect-w-4 xaspect-h-5 bg-wu-blue text-white grid place-content-center p-6"> 
+                <div class="w-full bg-wu-blue text-white grid place-content-center p-6 lg:text-2xl hover:bg-wu-green"> 
                 {{ block.settings.content }}
                 </div>
             {% endcase %}

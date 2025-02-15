@@ -702,7 +702,7 @@ div p {
   padding-bottom: 1rem !important;
 }
 
-.template- main {
+.template- main, .template-404 main {
   display: grid;
   height: 100%;
   width: 100%;
@@ -712,7 +712,7 @@ div p {
   padding: 20px;
 }
 
-.template- main div {
+.template- main div, .template-404 main div {
   max-width: 50%;
   background-color: #0A6BFF;
   background-color: var(--blue,#0A6BFF);
@@ -727,12 +727,12 @@ div p {
   color: var(--white,#FFFFFF);
 }
 
-.template- main div.bg-contrasting,.template- main div .bg-contrasting {
+.template- main div.bg-contrasting,.template- main div .bg-contrasting, .template-404 main div.bg-contrasting, .template-404 main div .bg-contrasting {
   background-color: #000000;
   background-color: var(--black,#000000);
 }
 
-.template- main h1 {
+.template- main h1, .template-404 main h1 {
   letter-spacing: 0.1em;
   display: none;
   padding-bottom: 20px;
@@ -740,11 +740,11 @@ div p {
   font-size: 30px;
 }
 
-input[type="radio"].template- main h1:checked + label {
+input[type="radio"].template- main h1:checked + label,input[type="radio"] .template-404 main h1:checked + label {
   border-style: dashed;
 }
 
-input[type="radio"].template- main h1 + label {
+input[type="radio"].template- main h1 + label,input[type="radio"] .template-404 main h1 + label {
   cursor: pointer;
   border-bottom-width: 2px;
   border-style: none;
@@ -752,13 +752,13 @@ input[type="radio"].template- main h1 + label {
 }
 
 @media (min-width: 768px) {
-  input[type="radio"].template- main h1 + label:hover {
+  input[type="radio"].template- main h1 + label:hover,input[type="radio"] .template-404 main h1 + label:hover {
     border-style: solid;
   }
 }
 
 @media (min-width: 1024px) {
-  .template- main h1 {
+  .template- main h1, .template-404 main h1 {
     font-size: 48px;
   }
 }
@@ -1885,10 +1885,6 @@ input[type="radio"].template- main h1 + label {
   font-size: 20px;
 }
 
-.text-\[24px\] {
-  font-size: 24px;
-}
-
 .text-\[30px\] {
   font-size: 30px;
 }
@@ -2573,6 +2569,16 @@ input[type="radio"].hidden + label {
   background-color: var(--white,#FFFFFF);
 }
 
+.hover\:bg-wu-nav:hover {
+  background-color: #2000CD;
+  background-color: var(--nav,#2000CD);
+}
+
+.hover\:bg-wu-green:hover {
+  background-color: #23B085;
+  background-color: var(--green,#23B085);
+}
+
 .hover\:text-wu-blue:hover {
   color: #0A6BFF;
   color: var(--blue,#0A6BFF);
@@ -2753,10 +2759,6 @@ input[type="radio"].hidden + label {
     height: auto;
   }
 
-  .md\:w-1\/2 {
-    width: 50%;
-  }
-
   .md\:w-60 {
     width: 15rem;
   }
@@ -2771,6 +2773,10 @@ input[type="radio"].hidden + label {
 
   .md\:max-w-\[700px\] {
     max-width: 700px;
+  }
+
+  .md\:max-w-\[50\%\] {
+    max-width: 50%;
   }
 
   .md\:columns-3 {
@@ -2859,10 +2865,6 @@ input[type="radio"].hidden + label {
     line-height: 2;
   }
 
-  .md\:opacity-0 {
-    opacity: 0;
-  }
-
   .md\:columns-3 {
     -moz-columns: 3 auto;
          columns: 3 auto;
@@ -2920,9 +2922,18 @@ input[type="radio"].hidden + label {
     height: 84px;
   }
 
+  .lg\:max-w-\[50\%\] {
+    max-width: 50%;
+  }
+
   .lg\:px-\[10px\] {
     padding-left: 10px;
     padding-right: 10px;
+  }
+
+  .lg\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 
   .lg\:text-\[14px\] {
@@ -2953,7 +2964,37 @@ input[type="radio"].hidden + label {
     font-size: 48px;
   }
 
-  .lg\:text-\[60px\] {
-    font-size: 60px;
+  .lg\:text-\[50px\] {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:block {
+    display: block;
+  }
+
+  .xl\:hidden {
+    display: none;
+  }
+
+  .xl\:w-1\/2 {
+    width: 50%;
+  }
+
+  .xl\:max-w-\[50\%\] {
+    max-width: 50%;
+  }
+
+  .xl\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .xl\:justify-self-center {
+    justify-self: center;
+  }
+
+  .xl\:opacity-100 {
+    opacity: 1;
   }
 }

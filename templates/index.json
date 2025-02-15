@@ -1,10 +1,51 @@
 {
-    "sections": {
-      "main": {
-        "type": "template-index"
-      }
+  "sections": {
+    "main": {
+      "type": "template-index",
+      "disabled": true,
+      "settings": {}
     },
-    "order": [
-      "main"
-    ]
-  }
+    "index_collection_grid_98geUm": {
+      "type": "index-collection-grid",
+      "blocks": {
+        "collection_wBY7Dm": {
+          "type": "collection",
+          "settings": {
+            "collection": "women"
+          }
+        },
+        "collection_NAEABj": {
+          "type": "collection",
+          "settings": {
+            "collection": "men"
+          }
+        },
+        "content_hLBbnt": {
+          "type": "content",
+          "settings": {
+            "content": "<h2><a href=\"https:\/\/ab-uniform.com\/pages\/the-good-things-in-life-are-free\">MENDING<\/a><\/h2><p><a href=\"https:\/\/ab-uniform.com\/pages\/the-good-things-in-life-are-free\">Yes we mend.<br\/>For free.<\/a><\/p><h2><a href=\"https:\/\/ab-uniform.com\/blogs\/bulletin#Shipping%20and%20Returns\">SHIPPING<\/a><\/h2><p><a href=\"https:\/\/ab-uniform.com\/blogs\/bulletin#Shipping%20and%20Returns\">For free. Domestically.<\/a><\/p>"
+          }
+        },
+        "collection_wwFXNN": {
+          "type": "collection",
+          "settings": {
+            "collection": "both"
+          }
+        }
+      },
+      "block_order": [
+        "collection_wBY7Dm",
+        "collection_NAEABj",
+        "content_hLBbnt",
+        "collection_wwFXNN"
+      ],
+      "settings": {
+        "title": "Featured Collections"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "index_collection_grid_98geUm"
+  ]
+}

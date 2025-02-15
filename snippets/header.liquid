@@ -1,9 +1,9 @@
 <header class="bg-wu-nav sticky z-50 top-0 w-full text-wu-text text-xl uppercase h-[70px] font-sans border-b border-wu-gray" x-data="{open:false}">
-    <div class="grid grid-cols-2 md:grid-cols-3 h-full place-items-center">
+    <div class="grid grid-cols-2 xl:grid-cols-3 h-full place-items-center">
     
-      <nav class="hidden md:block justify-self-start px-[10px] md:px-[20px] lg:px-[10px] h-full">
+      <nav class="hidden xl:block justify-self-start px-[10px] md:px-[20px] lg:px-[10px] h-full bg-white">
           <ul class="menu flex items-center h-full">
-            <li class="hidden md:grid lg:hidden place-items-center n1 px-[10px] h-full">
+            <li class="hidden place-items-center n1 px-[10px] h-full">
               <a href="/" class="leading-none main-logo">
                   <svg viewBox="0 0 27 27" class="fill-current text-blue h-[2em] lg:h-[2em]">
                     <use class="fill-current" href="#logo-round" />
@@ -17,14 +17,14 @@
             {% endfor %}
           </ul>
       </nav>
-      <div class="flex items-center justify-self-start sm:justify-self-center px-[20px] xborder xborder-wu-blue object-contain">
+      <div class="flex items-center justify-self-start xl:justify-self-center px-[20px] xborder xborder-wu-blue object-contain">
           <a href="/" class="leading-none main-logo">
               <svg  class="fill-current text-blue h-[2em] lg:h-[2.5em] max-w-[100%]">
                 <use class="fill-current" href="#logo" />
               </svg>
           </a>
       </div>
-      <nav class="hidden md:block px-[10px] md:px-[20px] h-full justify-self-end">
+      <nav class="hidden xl:block px-[10px] md:px-[20px] h-full justify-self-end">
           <ul class="menu flex items-center h-full">
             {% for link in linklists.top-menu-right.links %}
               <li class=" n1 px-[10px] md:px-[20px] h-full grid place-items-center">
@@ -47,7 +47,7 @@
           </ul>
       </nav>
 
-      <nav class="md:hidden justify-self-end px-[20px] mt-[6px] text-[18px] leading-none" x-cloak>
+      <nav class="xl:hidden justify-self-end px-[20px] mt-[6px] text-[18px] leading-none" x-cloak>
         <span @click="open = ! open" @keyup.escape.window="open = false" x-text="open?'close':'menu'" 
         class="select-none cursor-pointer mt-[3px]"></span>
       </nav>
