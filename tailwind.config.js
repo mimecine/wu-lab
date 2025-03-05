@@ -46,17 +46,11 @@ module.exports = {
       }
     },
   },
-  // variants: {
-  //     extend: {
-  //     transitionProperty:['hover','focus'],
-  //   },
-  // },
   corePlugins: {
     aspectRatio: false,
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/forms'),
-   // require('tailwindcss-scroll-snap')
   ],
 }

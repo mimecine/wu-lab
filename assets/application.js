@@ -87,8 +87,10 @@ document.addEventListener("alpine:init", () => {
         let img = product.media.find((m) => {
           return m.src?.indexOf("_illustration.") != -1;
         });
-        if (img) {
+        if (img?.src) {
           item.image = img.src;
+        } else {
+          item.image = product.media[0].src;
         }
       }
 

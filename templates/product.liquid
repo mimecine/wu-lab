@@ -100,7 +100,7 @@
     <span class="absolute bottom-[10px] left-[20px] sm:text-[20px] x{{ arrowclass }}" x-text="`${pos}/${itemlen}`"></span>
   </div>
 
-  <div class="{{ bgclass }} {{ txclass }} md:border-r border-wu-gray md:col-span-1 order-2 md:order-1 p-[20px] pt-[40px] md:p-[40px] grid place-content-center grid-cols-1">
+  <div class="{{ bgclass }} {{ txclass }} md:border-r border-wu-gray md:col-span-1 order-2 md:order-1 p-[20px] pt-[40px] lg:p-[40px] grid place-content-center grid-cols-1">
     <h1 class="text-[30px] md:text-[36px] mb-4 font-sans leading-[43px]">{{ plain_title }}</h1>
     <div class="font-serif text-[16px] md:text-[16px] leading-[24px] pb-5 order-last md:order-none pt-[20px] sm:pt-[0]">
       <p class="text-[12px] md:text-[14px] font-serif">Details</p>
@@ -150,7 +150,7 @@
           {% endfor %}
         </p>
       </div>
-      <div class="pt-6">
+      <div class="pt-6 md:pt-3">
         <div class="flex items-baseline justify-start">
           <span class="font-sans text-[20px]">{{ current_variant.price | money_without_trailing_zeros }}</span>
           <button

@@ -58,12 +58,14 @@
       <div class="grid relative group pad bg-wu-blue text-white place-content-center p-6">
         {% if forloop.last %}
 
-          <div class="block h-full bg-white p-6 m-auto text-wu-blue">
+          {% comment %} <div class="block h-full bg-white p-6 m-auto text-wu-blue">
             <h2 class="text-[12px] lg:text-[20px]"><a href="/pages/the-good-things-in-life-are-free">MENDING</a></h2>
             Yes we can.<br>
             Yes we do.<br>
             Yes for free.
-          </div>
+          </div> {% endcomment %}
+
+          <div class="block h-full bg-white p-6 m-auto text-wu-blue">{{ pages['last-tile-blurb'].content }}</div>
 
         {% else %}
           {% if forloop.rindex == 2 %}

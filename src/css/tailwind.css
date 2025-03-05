@@ -33,18 +33,18 @@
 
 
   div p {
-    padding-bottom: 1rem !important;
+    @apply pb-2 xl:!pb-4;
   }
 
   .template- main, .template-404 main {
     @apply grid place-items-center h-full w-full p-[20px];
   }
-  .template- main div, .template-404 main div {
+  .template- main > div, .template-404 main > div {
     @apply text-white bg-wu-blue p-[20px] pt-[40px] pb-[60px] max-w-[50%] font-serif;
   }
 
   .template- main h1, .template-404 main h1 {
-    @apply hidden font-sans text-[30px] lg:text-[48px] pb-[20px];
+    @apply font-sans text-[30px] lg:text-[48px] pb-[20px];
   }
   .template-page main h2 {
     @apply font-sans; 
@@ -247,19 +247,7 @@
   @apply bg-wu-black;
 }
 
-/* .card-index-1, .card-index-3 {
-  & .image {
-    @apply group-hover:scale-110 
-  }
-}
-.card-index-0, .card-index-2, .card-index-4, .card-index-5, .card-index-6 {
-  & .image {
-    @apply group-hover:scale-90 
-  }
-} */
 
-/* .image { @apply transition:transform group-hover:scale-90 duration-300 } */
-/* .image { @apply transition-transform group-hover:scale-95 } */
 .image {
   @apply transition-transform md:p-[5vw];
 }
@@ -271,11 +259,6 @@
   @apply md:px-[8vw];
 }
 
-/* .card-index-1, .card-index-3 {
-  & .image {
-    @apply md:py-[8vw];
-  }
-} */
 
 .card-index-2 {
   @apply md:col-span-2 md:w-1/2 md:place-self-end;

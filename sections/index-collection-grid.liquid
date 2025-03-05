@@ -59,6 +59,10 @@ Collection grid for landing page
                 <div class="w-full bg-wu-blue text-white grid place-content-center p-6 lg:text-2xl hover:bg-wu-green"> 
                 {{ block.settings.content }}
                 </div>
+              {% when 'page' %}
+                <div class="page-blurb w-full bg-wu-blue text-white grid place-content-center p-6 lg:text-2xl hover:bg-wu-green"> 
+                {{ block.settings.page.content }}
+                </div>
             {% endcase %}
           </div>
         {% endfor %}
@@ -96,6 +100,17 @@ Collection grid for landing page
             "type": "richtext",
             "id": "content",
             "label": "Contents",
+          },
+        ]
+      },
+      {
+        "type": "page",
+        "name": "Page Content",
+        "settings": [
+          {
+            "type": "page",
+            "id": "page",
+            "label": "Page",
           },
         ]
       }

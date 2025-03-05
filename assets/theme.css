@@ -699,7 +699,13 @@ form-embed > button {
 }
 
 div p {
-  padding-bottom: 1rem !important;
+  padding-bottom: 0.5rem;
+}
+
+@media (min-width: 1280px) {
+  div p {
+    padding-bottom: 1rem !important;
+  }
 }
 
 .template- main, .template-404 main {
@@ -712,7 +718,7 @@ div p {
   padding: 20px;
 }
 
-.template- main div, .template-404 main div {
+.template- main > div, .template-404 main > div {
   max-width: 50%;
   background-color: #0A6BFF;
   background-color: var(--blue,#0A6BFF);
@@ -727,34 +733,16 @@ div p {
   color: var(--white,#FFFFFF);
 }
 
-.template- main div.bg-contrasting,.template- main div .bg-contrasting, .template-404 main div.bg-contrasting, .template-404 main div .bg-contrasting {
+.template- main > div.bg-contrasting,.template- main > div .bg-contrasting, .template-404 main > div.bg-contrasting, .template-404 main > div .bg-contrasting {
   background-color: #000000;
   background-color: var(--black,#000000);
 }
 
 .template- main h1, .template-404 main h1 {
   letter-spacing: 0.1em;
-  display: none;
   padding-bottom: 20px;
   font-family: erbar, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 30px;
-}
-
-input[type="radio"].template- main h1:checked + label,input[type="radio"] .template-404 main h1:checked + label {
-  border-style: dashed;
-}
-
-input[type="radio"].template- main h1 + label,input[type="radio"] .template-404 main h1 + label {
-  cursor: pointer;
-  border-bottom-width: 2px;
-  border-style: none;
-  border-color: currentColor;
-}
-
-@media (min-width: 768px) {
-  input[type="radio"].template- main h1 + label:hover,input[type="radio"] .template-404 main h1 + label:hover {
-    border-style: solid;
-  }
 }
 
 @media (min-width: 1024px) {
@@ -1271,10 +1259,6 @@ input[type="radio"].template- main h1 + label,input[type="radio"] .template-404 
 
 .max-w-\[100\%\] {
   max-width: 100%;
-}
-
-.max-w-\[50\%\] {
-  max-width: 50%;
 }
 
 .max-w-\[600px\] {
@@ -1865,6 +1849,10 @@ input[type="radio"].template- main h1 + label,input[type="radio"] .template-404 
   line-height: 1;
 }
 
+.text-\[10px\] {
+  font-size: 10px;
+}
+
 .text-\[12px\] {
   font-size: 12px;
 }
@@ -1895,10 +1883,6 @@ input[type="radio"].template- main h1 + label,input[type="radio"] .template-404 
 
 .text-\[60px\] {
   font-size: 60px;
-}
-
-.text-\[9px\] {
-  font-size: 9px;
 }
 
 .text-sm {
@@ -2351,21 +2335,6 @@ nav .link-current {
   background-color: var(--black,#000000);
 }
 
-/* .card-index-1, .card-index-3 {
-  & .image {
-    @apply group-hover:scale-110 
-  }
-}
-.card-index-0, .card-index-2, .card-index-4, .card-index-5, .card-index-6 {
-  & .image {
-    @apply group-hover:scale-90 
-  }
-} */
-
-/* .image { @apply transition:transform group-hover:scale-90 duration-300 } */
-
-/* .image { @apply transition-transform group-hover:scale-95 } */
-
 .image {
   transition-property: transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -2386,15 +2355,7 @@ nav .link-current {
     padding-left: 8vw;
     padding-right: 8vw;
   }
-}
 
-/* .card-index-1, .card-index-3 {
-  & .image {
-    @apply md:py-[8vw];
-  }
-} */
-
-@media (min-width: 768px) {
   .card-index-2 {
     grid-column: span 2 / span 2;
     width: 50%;
@@ -2564,19 +2525,14 @@ input[type="radio"].hidden + label {
   background-color: var(--blue,#0A6BFF);
 }
 
-.hover\:bg-wu-white:hover {
-  background-color: #FFFFFF;
-  background-color: var(--white,#FFFFFF);
-}
-
-.hover\:bg-wu-nav:hover {
-  background-color: #2000CD;
-  background-color: var(--nav,#2000CD);
-}
-
 .hover\:bg-wu-green:hover {
   background-color: #23B085;
   background-color: var(--green,#23B085);
+}
+
+.hover\:bg-wu-white:hover {
+  background-color: #FFFFFF;
+  background-color: var(--white,#FFFFFF);
 }
 
 .hover\:text-wu-blue:hover {
@@ -2775,10 +2731,6 @@ input[type="radio"].hidden + label {
     max-width: 700px;
   }
 
-  .md\:max-w-\[50\%\] {
-    max-width: 50%;
-  }
-
   .md\:columns-3 {
     -moz-columns: 3;
          columns: 3;
@@ -2835,6 +2787,10 @@ input[type="radio"].hidden + label {
 
   .md\:pb-\[40px\] {
     padding-bottom: 40px;
+  }
+
+  .md\:pt-3 {
+    padding-top: 0.75rem;
   }
 
   .md\:pt-\[40px\] {
@@ -2926,6 +2882,10 @@ input[type="radio"].hidden + label {
     max-width: 50%;
   }
 
+  .lg\:p-\[40px\] {
+    padding: 40px;
+  }
+
   .lg\:px-\[10px\] {
     padding-left: 10px;
     padding-right: 10px;
@@ -2938,10 +2898,6 @@ input[type="radio"].hidden + label {
 
   .lg\:text-\[14px\] {
     font-size: 14px;
-  }
-
-  .lg\:text-\[15px\] {
-    font-size: 15px;
   }
 
   .lg\:text-\[16px\] {
@@ -2980,10 +2936,6 @@ input[type="radio"].hidden + label {
 
   .xl\:w-1\/2 {
     width: 50%;
-  }
-
-  .xl\:max-w-\[50\%\] {
-    max-width: 50%;
   }
 
   .xl\:grid-cols-3 {
